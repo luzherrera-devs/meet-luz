@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV – María Luz Herrera</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1a1a;
+    --ink-light: #4a4a4a;
+    --ink-faint: #888;
+    --accent: #1d4a3a;
+    --accent-mid: #2d6b55;
+    --cream: #faf8f4;
+    --rule: #d4cfc6;
+    --rule-soft: #e8e3da;
+    --tag-bg: #edf2ef;
+  }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: #e8e4dc;
+    color: var(--ink);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 24px 12px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 880px;
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr 272px;
+    box-shadow: 0 20px 80px rgba(0,0,0,0.18);
+  }
+
+  /* HEADER */
+  .header {
+    grid-column: 1 / -1;
+    background: var(--accent);
+    padding: 44px 52px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -70px; right: -70px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+
+  /* availability badge in header, top-right */
+  .header-availability {
+    position: absolute;
+    top: 22px;
+    right: 28px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(168, 213, 186, 0.55);
+    color: #d9f0e2;
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 100px;
+    z-index: 2;
+    backdrop-filter: blur(4px);
+  }
+  .header-avail-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 8px rgba(74, 222, 128, 0.7);
+    animation: pulse 2s infinite;
+    flex-shrink: 0;
+  }
+
+  .name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 50px;
+    color: #fff;
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+  .name em { font-style: italic; font-weight: 400; }
+
+  .title-line {
+    margin-top: 10px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10.5px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .contact-row {
+    margin-top: 20px;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .contact-item {
+    font-family: 'DM Mono', monospace;
+    font-size: 10.5px;
+    color: rgba(255,255,255,0.72);
+  }
+  .contact-item span { color: rgba(255,255,255,0.35); margin-right: 5px; }
+
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255,255,255,0.72);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 1px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .contact-link:hover {
+    color: #fff;
+    border-bottom-color: rgba(255,255,255,0.6);
+  }
+
+  /* MAIN */
+  .main {
+    padding: 44px 40px 52px 52px;
+    border-right: 1px solid var(--rule);
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent-mid);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  .summary {
+    font-size: 13.5px;
+    line-height: 1.78;
+    color: var(--ink-light);
+    font-weight: 300;
+    margin-bottom: 10px;
+    padding-left: 14px;
+    border-left: 2px solid var(--accent-mid);
+  }
+  .summary strong { color: var(--ink); font-weight: 500; }
+
+  .summary-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--ink-faint);
+    padding-left: 14px;
+    margin-bottom: 38px;
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .summary-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .summary-meta span::before {
+    content: '·';
+    color: var(--accent-mid);
+    font-size: 14px;
+  }
+
+  /* TIMELINE EXPERIENCE */
+  .experience {
+    position: relative;
+    padding-left: 0;
+  }
+
+  /* ============ TIMELINE (new style) ============ */
+
+  /* vertical spine — desktop */
+  .tl-spine {
+    position: absolute;
+    left: 164px;
+    top: 10px;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--accent-mid), rgba(45,107,85,0.1));
+  }
+
+  .tl-block {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    column-gap: 28px;
+    margin-bottom: 36px;
+    position: relative;
+  }
+  .tl-block:last-child { margin-bottom: 0; }
+
+  /* LEFT column: period + standardized progression */
+  .tl-left {
+    padding-top: 2px;
+    text-align: left;
+  }
+  .tl-period {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.3px;
+    margin-bottom: 10px;
+    line-height: 1;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .tl-progression {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-left: 10px;
+  }
+  .tl-step {
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px;
+    color: var(--ink-light);
+    line-height: 1.4;
+    letter-spacing: 0.3px;
+  }
+  .tl-step-date {
+    color: var(--ink-faint);
+    margin-right: 7px;
+  }
+  .tl-step-level {
+    color: var(--ink);
+    font-weight: 400;
+  }
+
+  /* dot on the vertical line */
+  .tl-dot {
+    position: absolute;
+    left: 160px;
+    top: 6px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--accent-mid);
+    border: 2px solid var(--cream);
+    box-shadow: 0 0 0 1px var(--accent-mid);
+    z-index: 1;
+  }
+  .tl-dot.small {
+    width: 6px;
+    height: 6px;
+    left: 162px;
+    top: 8px;
+    background: var(--rule);
+    box-shadow: 0 0 0 1px var(--ink-faint);
+  }
+  .tl-dot.tabique {
+    width: 7px;
+    height: 7px;
+    left: 161px;
+    top: 7px;
+    background: var(--cream);
+    box-shadow: 0 0 0 1.5px var(--accent-mid);
+  }
+
+  /* maternity / life tabique block */
+  .tl-block.tabique {
+    margin-bottom: 36px;
+  }
+  .tl-block.tabique .tl-content {
+    padding: 12px 16px;
+    background: rgba(45, 107, 85, 0.05);
+    border-left: 2px solid var(--accent-mid);
+    border-radius: 0 4px 4px 0;
+  }
+  .tl-block.tabique .tl-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+    margin-bottom: 2px;
+  }
+  .tl-block.tabique .tl-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--ink-faint);
+    letter-spacing: 0.5px;
+  }
+
+  /* RIGHT column: title + bullets */
+  .tl-content {}
+
+  .tl-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .job-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 0;
+  }
+  .job-bullets li {
+    font-size: 12px;
+    line-height: 1.62;
+    color: var(--ink-light);
+    font-weight: 300;
+    padding-left: 13px;
+    position: relative;
+  }
+  .job-bullets li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent-mid);
+    font-size: 9px;
+    top: 3px;
+  }
+  .job-bullets strong { color: var(--ink); font-weight: 500; }
+
+  /* nested sub-bullets — 2 columns, compact */
+  .job-sub-bullets {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px 14px;
+    margin-top: 8px;
+    margin-bottom: 2px;
+    padding-left: 0;
+  }
+  .job-sub-bullets li {
+    font-size: 10.5px;
+    line-height: 1.45;
+    color: var(--ink-light);
+    font-weight: 300;
+    padding-left: 12px;
+    position: relative;
+  }
+  .job-sub-bullets li::before {
+    content: '·';
+    position: absolute;
+    left: 3px;
+    color: var(--accent-mid);
+    font-size: 15px;
+    line-height: 1;
+    top: 0;
+  }
+  .job-sub-bullets li strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  @media (max-width: 640px) {
+    .tl-spine { left: 120px; top: 8px; }
+    .tl-block {
+      grid-template-columns: 110px 1fr;
+      column-gap: 22px;
+      margin-bottom: 32px;
+    }
+    .tl-period {
+      font-size: 15px;
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+    }
+    .tl-step {
+      font-size: 9px;
+    }
+    .tl-progression {
+      padding-left: 7px;
+    }
+    .tl-dot {
+      left: 116px;
+      top: 6px;
+      width: 9px;
+      height: 9px;
+    }
+    .tl-dot.small {
+      left: 118px;
+      top: 8px;
+    }
+    .tl-dot.tabique {
+      left: 117px;
+      top: 7px;
+    }
+    .tl-title {
+      font-size: 15px;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+    .job-bullets {
+      gap: 7px;
+    }
+    .job-bullets li {
+      font-size: 11.5px;
+      line-height: 1.6;
+    }
+    .job-sub-bullets {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+    .job-sub-bullets li {
+      font-size: 10.5px;
+    }
+    .tl-block.tabique .tl-content {
+      padding: 10px 12px;
+    }
+    .tl-block.tabique .tl-title {
+      font-size: 13px;
+    }
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    padding: 44px 28px 52px;
+    display: flex;
+    flex-direction: column;
+  }
+  /* sidebar section order on DESKTOP: languages → differentiators → beyond → education → skills → tools → references */
+  .sidebar [data-section="languages"] { order: 1; }
+  .sidebar [data-section="differentiators"] { order: 2; }
+  .sidebar [data-section="beyond"] { order: 3; }
+  .sidebar [data-section="education"] { order: 4; }
+  .sidebar [data-section="skills"] { order: 5; }
+  .sidebar [data-section="tools"] { order: 6; }
+  .sidebar [data-section="references"] { order: 7; }
+
+  .side-section { margin-bottom: 30px; }
+
+  .side-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 8.5px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent-mid);
+    margin-bottom: 12px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .tag {
+    background: var(--tag-bg);
+    color: var(--accent);
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    padding: 3px 8px;
+    border: 1px solid rgba(45,107,85,0.15);
+  }
+
+  .lang-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 5px;
+  }
+  .lang-name { font-size: 12px; font-weight: 400; }
+  .lang-level { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--ink-faint); }
+  .lang-bar { height: 2px; background: var(--rule); margin-bottom: 11px; border-radius: 1px; }
+  .lang-fill { height: 100%; background: var(--accent-mid); border-radius: 1px; }
+
+  .trait {
+    font-size: 11.5px;
+    line-height: 1.6;
+    color: var(--ink-light);
+    font-weight: 300;
+    margin-bottom: 7px;
+    padding-left: 9px;
+    border-left: 1px solid var(--accent-mid);
+  }
+
+  .available-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #e8f5ee;
+    border: 1px solid #a8d5ba;
+    color: #1d4a3a;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1px;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+  .available-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #2d9e62;
+    animation: pulse 2s infinite;
+    flex-shrink: 0;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
+  }
+
+  .promo-badge {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 8.5px;
+    color: var(--accent-mid);
+    background: var(--tag-bg);
+    border: 1px solid rgba(45,107,85,0.2);
+    padding: 2px 6px;
+    margin-left: 6px;
+    vertical-align: middle;
+    letter-spacing: 0.5px;
+  }
+
+  .footer-strip {
+    grid-column: 1 / -1;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-mid) 60%, transparent);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    body { padding: 0; background: var(--cream); }
+    .page {
+      grid-template-columns: 1fr;
+      box-shadow: none;
+      display: flex;
+      flex-direction: column;
+    }
+    /* break .main so its children participate in the page's flex flow */
+    .main {
+      display: contents;
+    }
+    /* mobile order: header → professional profile → sidebar → experience → footer */
+    .header { order: 1; grid-column: 1; padding: 30px 22px 26px; }
+    .main-profile {
+      order: 2;
+      padding: 24px 22px 8px;
+      background: var(--cream);
+    }
+    .sidebar { order: 3; grid-column: 1; padding: 20px 22px 26px; background: #f4f1ec; }
+    .main-experience {
+      order: 4;
+      padding: 28px 22px 24px;
+      background: var(--cream);
+      border-top: 1px solid var(--rule);
+    }
+    .footer-strip { order: 5; grid-column: 1; }
+
+    .name { font-size: 34px; }
+    .title-line { font-size: 9px; letter-spacing: 1.5px; }
+    .contact-row { gap: 10px; margin-top: 14px; flex-direction: column; }
+    .summary { font-size: 13px; }
+    .header-availability {
+      top: 14px;
+      right: 14px;
+      font-size: 8.5px;
+      padding: 5px 9px;
+      letter-spacing: 1px;
+    }
+    .header-avail-dot { width: 6px; height: 6px; }
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .page { box-shadow: none; max-width: 100%; grid-template-columns: 1fr 260px; }
+    .header { grid-column: 1 / -1; }
+    .footer-strip { grid-column: 1 / -1; }
+    .available-badge::before { animation: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-availability">
+      <span class="header-avail-dot"></span>
+      Open to new roles
+    </div>
+    <div class="name">María Luz <em>Herrera</em></div>
+    <div class="title-line">Agile Product Owner · Service Management</div>
+    <div class="contact-row">
+      <div class="contact-item">
+        <a href="mailto:luzherrera@gmail.com" class="contact-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="4" width="20" height="16" rx="2" stroke="rgba(255,255,255,0.6)" stroke-width="1.6" fill="none"/><polyline points="2,6 12,14 22,6" stroke="rgba(255,255,255,0.6)" stroke-width="1.6" fill="none"/></svg>
+          luzherrera@gmail.com
+        </a>
+      </div>
+      <div class="contact-item">
+        <a href="https://wa.me/5491139150033" class="contact-link" target="_blank">
+          <svg width="13" height="13" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="rgba(255,255,255,0.6)"/></svg>
+          +54 9 11 3915-0033
+        </a>
+      </div>
+      <div class="contact-item">
+        <a href="https://www.linkedin.com/in/luz-herrera-27b25a143" class="contact-link" target="_blank">
+          <svg width="13" height="13" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="rgba(255,255,255,0.6)"/></svg>
+          linkedin.com/in/luz-herrera
+        </a>
+      </div>
+      <div class="contact-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="rgba(255,255,255,0.5)"/></svg>
+        San Isidro, Buenos Aires
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <div class="main-profile">
+      <div class="section-label">Professional Profile</div>
+      <div class="summary">
+        Product Owner with <strong>over 10 years of Agile experience</strong>, specializing in ServiceNow-based service management for global enterprise environments. <strong>Fluent English</strong>, with 20+ years working in multinational settings. I don't just apply frameworks — I build the operational understanding that allows teams to move autonomously in complex systems.
+      </div>
+    </div>
+
+    <div class="main-experience">
+      <div class="section-label">Experience</div>
+    <div class="experience">
+      <div class="tl-spine"></div>
+
+      <!-- 2024-2026 Workplace -->
+      <div class="tl-block">
+        <div class="tl-left">
+          <div class="tl-period">2024 — 2026</div>
+          <div class="tl-progression">
+            <div class="tl-step"><span class="tl-step-date">2024</span><span class="tl-step-level">Sr Specialist</span></div>
+          </div>
+        </div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-title">Agile Advisor — Workplace Tools</div>
+          <ul class="job-bullets">
+            <li>Stepped in (Aug 2024) to temporarily cover a Manager-level role just after promotion to Sr Specialist, in a complex multi-stakeholder environment with limited PO agency across ServiceNow projects (EAM, Visitors Management, CRM).</li>
+            <li>Coached 4 Workplace Tools members in PO mindset and practices — strong personal impact directly recognized by the team.</li>
+            <li>Provided steady mentorship and backing to two Manila-based CRM stakeholders, who described me as a consistent point of support.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 2023-2024 Sr PO Exit ASG + HR Ops -->
+      <div class="tl-block">
+        <div class="tl-left">
+          <div class="tl-period">2023 — 2024</div>
+          <div class="tl-progression">
+            <div class="tl-step"><span class="tl-step-date">2021</span><span class="tl-step-level">Specialist</span></div>
+            <div class="tl-step"><span class="tl-step-date">Jun 2024</span><span class="tl-step-level">Sr Specialist</span></div>
+          </div>
+        </div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-title">Sr Product Owner — Exit ASG &amp; HR Operations</div>
+          <ul class="job-bullets">
+            <li>Returned from leave (Mar 2023); gradual ramp-up supporting the team on a 2nd ServiceNow Exit India release.</li>
+            <li>Mentored a team member in Change Management (May–Oct 2023) — hands-on "padawan" coaching that became a lasting reference for her PO trajectory.</li>
+            <li>Led the <strong>ServiceNow Exit ASG release</strong>: enhancements to Global Exit for Austria, Switzerland, Germany — navigating legal restrictions, HR-rep data visibility constraints, and last-minute escalations on acquisition entities scoped out of ServiceNow. Stabilized and handed off formally to HR Operations support.</li>
+            <li>Took on a parallel T1 backup role (late 2023 – mid 2024) supporting the HR ServiceNow operations lead across employee data, HR CRM, recognition, Exit Global/India/ASG.</li>
+            <li>Led <strong>ServiceNow Exit India support</strong> (Jan – Jun 2024) — stepped temporarily into HR Operations support lead, acting as PO to restore order and technical structure to an unstable backlog. Worked closely with <strong>Krish (Sr Analyst, India)</strong> — a colleague of rare integrity and technical authority whose discipline made coherent delivery possible under chaotic business conditions. Service ultimately rescinded due to unworkable client side.</li>
+            <li>Promotion to Sr Specialist arrived 15 months after returning from leave as a first-time mother.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- TABIQUE Maternity Leave -->
+      <div class="tl-block tabique">
+        <div class="tl-left">
+          <div class="tl-period">2022 — 2023</div>
+        </div>
+        <div class="tl-dot tabique"></div>
+        <div class="tl-content">
+          <div class="tl-title">Maternity Leave</div>
+          <div class="tl-meta">Oct 2022 – Mar 2023</div>
+        </div>
+      </div>
+
+      <!-- 2020-2022 Agile PO HR -->
+      <div class="tl-block">
+        <div class="tl-left">
+          <div class="tl-period">2020 — 2022</div>
+          <div class="tl-progression">
+            <div class="tl-step"><span class="tl-step-date">~2017</span><span class="tl-step-level">Sr Analyst</span></div>
+            <div class="tl-step"><span class="tl-step-date">2021</span><span class="tl-step-level">Specialist</span></div>
+          </div>
+        </div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-title">Agile PO for HR — From Junior to Senior</div>
+          <ul class="job-bullets">
+            <li>Took official PO role (Mar/Apr 2020) for the construction of Accenture's <strong>ServiceNow Global Exit module</strong> — voluntary and involuntary separations, fully remote across time zones. Owned end-to-end: product vision, story mapping, customizations for cross-area cooperation, post-deployment stabilization.</li>
+            <li>Fast consolidation from junior to senior PO during this build.</li>
+            <li><strong>LOA discovery + Story Mapping</strong> (early 2022): structured analysis identifying the business definitions required before development could start; left a workable kickoff plan in place before leave.</li>
+            <li>Delivered structured diagnostic + solution proposal (mid 2022) for an overloaded HR Background Checks team — no business–tech interface, no backlog ownership.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 2014-2020 ServiceNow build -->
+      <div class="tl-block">
+        <div class="tl-left">
+          <div class="tl-period">2014 — 2020</div>
+          <div class="tl-progression">
+            <div class="tl-step"><span class="tl-step-date">~2013</span><span class="tl-step-level">Analyst</span></div>
+            <div class="tl-step"><span class="tl-step-date">~2017</span><span class="tl-step-level">Sr Analyst</span></div>
+          </div>
+        </div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-title">Agile Team Member — Siebel to ServiceNow Migration</div>
+          <ul class="job-bullets">
+            <li>Core team member for the end-to-end migration from Siebel CRM to ServiceNow Service Management across <strong>7 corporate functions</strong>: Payroll, T&amp;E, AP, Fixed Assets, Fixed Assets Change, Executive Assistants, Office Services. Project ran through Oct 2020.</li>
+            <li>Formed under direct, rigorous mentorship of <strong>Christian Kannemann</strong> (Accenture's reference Agile coach, internally known as "the philosopher of Agile") and <strong>Gabriela Leegstra</strong> (Senior PO): genuine retrospectives, capacity-based planning, no-owner estimation, Scrum-ban, timed standups.</li>
+            <li>Co-built a <strong>floor-to-ceiling Story Map</strong> (two walls, 2+ weeks, post-its) — phased rollout for 20+ global teams, swimming lanes by release feasibility. T-shirt sizing with the India dev scrum flown to Buenos Aires.</li>
+            <li>Wrote user stories under close coaching by Christian; bridged Change Management and business — demos that doubled as trainings and feedback sessions across all 7 areas.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 2010-2014 BSA -->
+      <div class="tl-block">
+        <div class="tl-left">
+          <div class="tl-period">2010 — 2014</div>
+          <div class="tl-progression">
+            <div class="tl-step"><span class="tl-step-date">2010</span><span class="tl-step-level">Sr Assistant</span></div>
+            <div class="tl-step"><span class="tl-step-date">2013</span><span class="tl-step-level">Analyst</span></div>
+          </div>
+        </div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-title">Business Systems Administrator</div>
+          <ul class="job-bullets">
+            <li>T1 support, user admin, requirements gathering, functional testing of deploys. Sole trainer for onboarding groups of 15–20 users.</li>
+            <li><strong>SLA deployment project (20+ teams)</strong> — full data deployment with no import tooling. Applied core Agile principles before knowing the word "Agile":
+              <ul class="job-sub-bullets">
+                <li><strong>Story slicing:</strong> atomic, self-sufficient modules</li>
+                <li><strong>Effort estimation:</strong> manual load per record</li>
+                <li><strong>Capacity analysis:</strong> resource availability + seniority</li>
+                <li><strong>Mini-sprints:</strong> 15-min units, target dates</li>
+                <li><strong>Progressive delivery:</strong> manual burndown</li>
+                <li><strong>Cross-team coordination:</strong> 20+ teams, unified inputs</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 2008-2010 Team Lead -->
+      <div class="tl-block">
+        <div class="tl-left">
+          <div class="tl-period">2008 — 2010</div>
+          <div class="tl-progression">
+            <div class="tl-step"><span class="tl-step-date">2008</span><span class="tl-step-level">Assistant</span></div>
+            <div class="tl-step"><span class="tl-step-date">2008</span><span class="tl-step-level">Sr Assistant</span></div>
+          </div>
+        </div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-title">Team Lead &amp; Technical Reference</div>
+          <ul class="job-bullets">
+            <li>Promoted to Sr Assistant within 3 months — exceptional mastery of SAP and Siebel applied to edge-case resolution.</li>
+            <li>Appointed Team Lead (2009) for supervisor escalation calls: selected for reading each situation's unique variables and proposing context-specific solutions outside standard process.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 2006-2008 Tracfone -->
+      <div class="tl-block">
+        <div class="tl-left">
+          <div class="tl-period">2006 — 2008</div>
+          <div class="tl-progression">
+            <div class="tl-step"><span class="tl-step-date">2006</span><span class="tl-step-level">Bilingual Agent</span></div>
+            <div class="tl-step"><span class="tl-step-date">2007</span><span class="tl-step-level">Reporting Analyst</span></div>
+          </div>
+        </div>
+        <div class="tl-dot small"></div>
+        <div class="tl-content">
+          <div class="tl-title">Tracfone Call Center · US Market</div>
+          <ul class="job-bullets">
+            <li>English-language support, high-volume US market.</li>
+            <li>At 20, selected (with one senior colleague) to design the service reporting system from zero: incident categories, pattern identification, structured operational analysis. First contact with systems thinking on live data.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+
+    <div class="side-section" data-section="beyond">
+      <div class="side-label">Beyond the Resume</div>
+      <div style="font-size:12px;font-weight:500;color:var(--ink);line-height:1.3;margin-bottom:6px;">Sailing Instructor — Theory &amp; Practice</div>
+      <div style="font-size:11px;color:var(--ink-light);font-weight:300;line-height:1.65;">
+        Licensed yacht skipper. Taught intensive 9-hour courses covering sailing theory, practical navigation, and seamanship (helmsman, skipper, and motor-sail certifications).<br><br>
+        The same skill that defines my professional work: finding exactly where someone is, what they see and don't see, and creating the moment where everything clicks into place at once.
+      </div>
+    </div>
+
+    <div class="side-section" data-section="skills">
+      <div class="side-label">Core Skills</div>
+      <div class="tags">
+        <span class="tag">Agile Advisory</span>
+        <span class="tag">Coaching &amp; Mentorship</span>
+        <span class="tag">Teaching &amp; Facilitation</span>
+        <span class="tag">Systems Thinking</span>
+        <span class="tag">Pattern Recognition &amp; Intuition</span>
+        <span class="tag">Product Ownership</span>
+        <span class="tag">Backlog Management</span>
+        <span class="tag">Story Mapping</span>
+        <span class="tag">User Stories</span>
+        <span class="tag">Stakeholder Alignment</span>
+        <span class="tag">Change Management</span>
+      </div>
+    </div>
+
+    <div class="side-section" data-section="tools">
+      <div class="side-label">Tools &amp; Tech</div>
+      <div class="tags">
+        <span class="tag">ServiceNow</span>
+        <span class="tag">Microsoft 365 (advanced Excel)</span>
+        <span class="tag">AI / LLMs (Claude)</span>
+        <span class="tag">SAP</span>
+        <span class="tag">Siebel CRM</span>
+        <span class="tag">n8n</span>
+        <span class="tag">Google Apps Script</span>
+        <span class="tag">Trello</span>
+      </div>
+    </div>
+
+    <div class="side-section" data-section="languages">
+      <div class="side-label">Languages</div>
+      <div class="lang-item">
+        <span class="lang-name">Spanish</span>
+        <span class="lang-level">Native</span>
+      </div>
+      <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+      <div class="lang-item">
+        <span class="lang-name">English</span>
+        <span class="lang-level">Fluent · professional</span>
+      </div>
+      <div class="lang-bar"><div class="lang-fill" style="width:90%"></div></div>
+    </div>
+
+    <div class="side-section" data-section="differentiators">
+      <div class="side-label">Differentiators</div>
+      <div class="trait">Builds operational mental models that enable autonomous action — not dependency on process.</div>
+      <div class="trait">Pattern recognition across complex, multi-variable organizational systems.</div>
+      <div class="trait">Bridges business understanding and technical delivery without prescribing solutions.</div>
+      <div class="trait">Uses AI as a force multiplier for analysis, structure, and communication.</div>
+    </div>
+
+    <div class="side-section" data-section="education">
+      <div class="side-label">Education &amp; Certifications</div>
+      <div style="font-size:12px;font-weight:500;color:var(--ink);line-height:1.3;">St. Matthew's College</div>
+      <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--ink-faint);margin-top:2px;margin-bottom:10px;">Belgrano, Buenos Aires</div>
+
+      <div style="font-size:11.5px;font-weight:500;color:var(--ink);line-height:1.3;">Cambridge CAE <span style="font-family:'DM Mono',monospace;font-size:9px;color:var(--ink-faint);font-weight:300;">Certificate in Advanced English</span></div>
+      <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--ink-faint);margin-top:1px;margin-bottom:6px;">University of Cambridge · 2005</div>
+
+      <div style="font-size:11px;color:var(--ink-light);font-weight:300;line-height:1.55;padding-left:9px;border-left:1px solid var(--rule);">
+        PET · 2001<br>
+        KET · 2000<br>
+        Trinity College Grades 5 &amp; 6 · 1995–1997
+      </div>
+    </div>
+
+    <div class="side-section" data-section="references">
+      <div class="side-label">References</div>
+      <div style="font-size:11.5px;color:var(--ink-faint);font-weight:300;line-height:1.6;">Available upon request.</div>
+    </div>
+
+  </div>
+
+  <div class="footer-strip"></div>
+</div>
+
+</body>
+</html>
