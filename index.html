@@ -198,6 +198,45 @@
 
   /* ============ TIMELINE (new style) ============ */
 
+  /* employer grouping header */
+  .tl-employer {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+    margin-top: 4px;
+    padding-left: 0;
+  }
+  .tl-employer:first-of-type { margin-top: 0; }
+  .tl-employer-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 400;
+    white-space: nowrap;
+  }
+  .tl-employer-years {
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px;
+    color: var(--ink-faint);
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+  .tl-employer-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--accent-mid), var(--rule-soft) 40%, transparent);
+  }
+  .tl-employer + .tl-block {
+    margin-top: 0;
+  }
+  /* second+ employer headers need a bit more breathing room */
+  .tl-block + .tl-employer {
+    margin-top: 24px;
+  }
+
   /* vertical spine — desktop */
   .tl-spine {
     position: absolute;
@@ -390,6 +429,20 @@
       font-size: 15px;
       margin-bottom: 8px;
       padding-bottom: 6px;
+    }
+    .tl-employer {
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .tl-employer-name {
+      font-size: 9px;
+      letter-spacing: 2px;
+    }
+    .tl-employer-years {
+      font-size: 9px;
+    }
+    .tl-block + .tl-employer {
+      margin-top: 18px;
     }
     .tl-step {
       font-size: 9px;
@@ -647,6 +700,13 @@
     <div class="experience">
       <div class="tl-spine"></div>
 
+      <!-- EMPLOYER GROUP: Accenture -->
+      <div class="tl-employer">
+        <span class="tl-employer-name">Accenture</span>
+        <span class="tl-employer-years">2008 — 2026</span>
+        <span class="tl-employer-line"></span>
+      </div>
+
       <!-- 2024-2026 Workplace -->
       <div class="tl-block">
         <div class="tl-left">
@@ -790,7 +850,14 @@
         </div>
       </div>
 
-      <!-- 2006-2008 Tracfone -->
+      <!-- EMPLOYER GROUP: Qualfon -->
+      <div class="tl-employer">
+        <span class="tl-employer-name">Qualfon</span>
+        <span class="tl-employer-years">2006 — 2008</span>
+        <span class="tl-employer-line"></span>
+      </div>
+
+      <!-- 2006-2008 Qualfon (Tracfone account) -->
       <div class="tl-block">
         <div class="tl-left">
           <div class="tl-period">2006 — 2008</div>
@@ -801,7 +868,7 @@
         </div>
         <div class="tl-dot small"></div>
         <div class="tl-content">
-          <div class="tl-title">Tracfone Call Center · US Market</div>
+          <div class="tl-title">Call Center — Tracfone account (US Market)</div>
           <ul class="job-bullets">
             <li>English-language support, high-volume US market.</li>
             <li>At 20, selected (with one senior colleague) to design the service reporting system from zero: incident categories, pattern identification, structured operational analysis. First contact with systems thinking on live data.</li>
